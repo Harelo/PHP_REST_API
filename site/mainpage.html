@@ -1,0 +1,30 @@
+<html>
+    <body bgcolor="azure">
+        <center>
+            <table style="border-collapse: collapse">
+                    <tr>
+                        <td>Enter ID: </td>
+                        <td><input name="srcID" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>Result: (Group) </td>
+                        <td><input type="text" name="result" readonly/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="Fetch" onClick="sendRequest()" /></td>
+                    </tr>
+            </table>
+    </center>
+        <script>
+            function sendRequest()
+            {
+                var src = document.all.srcID.value
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "http://restapi.result.academy/api/read.php?id="+src,false);
+                xhttp.send(null);
+                document.all.result.value = xhttp.responseText;
+            }
+        </script>
+
+    </body>
+</html>
